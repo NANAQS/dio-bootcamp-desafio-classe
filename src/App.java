@@ -1,7 +1,9 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import domain.Bootcamp;
 import domain.Curso;
+import domain.Dev;
 import domain.Mentorias;
 
 public class App {
@@ -18,9 +20,17 @@ public class App {
 
         Mentorias mentoria1 = new Mentorias();
         mentoria1.setTitulo("mentoria java");
-        mentoria1.setDescricao("mentoria");
         mentoria1.setData(LocalDate.now());
 
-        System.out.println(curso1.toString());
+        
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Javali developer");
+        bootcamp.setDescricao("curso basico");
+        bootcamp.getConteudos().add(mentoria1);
+
+        Dev dev = new Dev();
+        dev.setNome("Jao");
+        dev.increverBootcamp(bootcamp);
+        System.out.println(dev.getConteudosIncritos());
     }
 }
